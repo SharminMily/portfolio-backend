@@ -7,10 +7,15 @@ import { BlogRoutes } from './app/modules/Blogs/blog.router';
 
 
 const app: Application= express();
-app.use(cors({
-   origin: "http://localhost:3000", 
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://sharmin-beta.vercel.app"
+    ],
+    credentials: true,
+  })
+);
 
 //parser
 app.use(express.json());

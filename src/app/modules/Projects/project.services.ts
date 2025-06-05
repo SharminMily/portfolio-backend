@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 
 const createProject = async (data: any) => {
-//   console.log({ data });
+  // console.log({ data });
 
   const projectData = {
     title: data.title,

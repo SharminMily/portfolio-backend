@@ -50,6 +50,7 @@ const getByIdFromDB = async (id: string)  => {
 
   //delete from database
 const deleteFromDB = async (id: string)  => {  
+  // console.log({ id });
     const result = await prisma.blog.delete({
         where: {
          id: id
