@@ -13,7 +13,7 @@ exports.ProjectServices = void 0;
 const prisma_1 = require("../../../../generated/prisma");
 const prisma = new prisma_1.PrismaClient();
 const createProject = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    //   console.log({ data });
+    // console.log({ data });
     const projectData = {
         title: data.title,
         image: data.image,

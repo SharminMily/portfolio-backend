@@ -49,6 +49,7 @@ const updateIntoDB = (id, data) => __awaiter(void 0, void 0, void 0, function* (
 });
 //delete from database
 const deleteFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    // console.log({ id });
     const result = yield prisma.blog.delete({
         where: {
             id: id
