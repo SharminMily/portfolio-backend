@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://sharmin-beta.vercel.app"
+      "https://sharmin-mily.vercel.app"
     ],
     credentials: true,
   })
