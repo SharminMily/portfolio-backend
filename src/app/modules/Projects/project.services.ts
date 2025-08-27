@@ -10,6 +10,8 @@ const createProject = async (data: any) => {
     title: data.title,
     image: data.image,
     description: data.description,
+    technology: data.technology,
+    projectTime: data.projectTime,
     liveLink: data.liveLink,
     frontendCode: data.frontendCode,
     backendCode: data.backendCode,

@@ -2126,6 +2126,7 @@ export namespace Prisma {
     title: string | null
     image: string | null
     description: string | null
+    projectTime: string | null
     liveLink: string | null
     frontendCode: string | null
     backendCode: string | null
@@ -2136,6 +2137,7 @@ export namespace Prisma {
     title: string | null
     image: string | null
     description: string | null
+    projectTime: string | null
     liveLink: string | null
     frontendCode: string | null
     backendCode: string | null
@@ -2145,7 +2147,9 @@ export namespace Prisma {
     id: number
     title: number
     image: number
+    technology: number
     description: number
+    projectTime: number
     liveLink: number
     frontendCode: number
     backendCode: number
@@ -2158,6 +2162,7 @@ export namespace Prisma {
     title?: true
     image?: true
     description?: true
+    projectTime?: true
     liveLink?: true
     frontendCode?: true
     backendCode?: true
@@ -2168,6 +2173,7 @@ export namespace Prisma {
     title?: true
     image?: true
     description?: true
+    projectTime?: true
     liveLink?: true
     frontendCode?: true
     backendCode?: true
@@ -2177,7 +2183,9 @@ export namespace Prisma {
     id?: true
     title?: true
     image?: true
+    technology?: true
     description?: true
+    projectTime?: true
     liveLink?: true
     frontendCode?: true
     backendCode?: true
@@ -2260,7 +2268,9 @@ export namespace Prisma {
     id: string
     title: string
     image: string
+    technology: string[]
     description: string
+    projectTime: string
     liveLink: string | null
     frontendCode: string | null
     backendCode: string | null
@@ -2287,7 +2297,9 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     image?: boolean
+    technology?: boolean
     description?: boolean
+    projectTime?: boolean
     liveLink?: boolean
     frontendCode?: boolean
     backendCode?: boolean
@@ -2297,7 +2309,9 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     image?: boolean
+    technology?: boolean
     description?: boolean
+    projectTime?: boolean
     liveLink?: boolean
     frontendCode?: boolean
     backendCode?: boolean
@@ -2307,7 +2321,9 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     image?: boolean
+    technology?: boolean
     description?: boolean
+    projectTime?: boolean
     liveLink?: boolean
     frontendCode?: boolean
     backendCode?: boolean
@@ -2317,13 +2333,15 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     image?: boolean
+    technology?: boolean
     description?: boolean
+    projectTime?: boolean
     liveLink?: boolean
     frontendCode?: boolean
     backendCode?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "image" | "description" | "liveLink" | "frontendCode" | "backendCode", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "image" | "technology" | "description" | "projectTime" | "liveLink" | "frontendCode" | "backendCode", ExtArgs["result"]["project"]>
 
   export type $ProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Project"
@@ -2332,7 +2350,9 @@ export namespace Prisma {
       id: string
       title: string
       image: string
+      technology: string[]
       description: string
+      projectTime: string
       liveLink: string | null
       frontendCode: string | null
       backendCode: string | null
@@ -2762,7 +2782,9 @@ export namespace Prisma {
     readonly id: FieldRef<"Project", 'String'>
     readonly title: FieldRef<"Project", 'String'>
     readonly image: FieldRef<"Project", 'String'>
+    readonly technology: FieldRef<"Project", 'String[]'>
     readonly description: FieldRef<"Project", 'String'>
+    readonly projectTime: FieldRef<"Project", 'String'>
     readonly liveLink: FieldRef<"Project", 'String'>
     readonly frontendCode: FieldRef<"Project", 'String'>
     readonly backendCode: FieldRef<"Project", 'String'>
@@ -5157,7 +5179,9 @@ export namespace Prisma {
     id: 'id',
     title: 'title',
     image: 'image',
+    technology: 'technology',
     description: 'description',
+    projectTime: 'projectTime',
     liveLink: 'liveLink',
     frontendCode: 'frontendCode',
     backendCode: 'backendCode'
@@ -5309,7 +5333,9 @@ export namespace Prisma {
     id?: StringFilter<"Project"> | string
     title?: StringFilter<"Project"> | string
     image?: StringFilter<"Project"> | string
+    technology?: StringNullableListFilter<"Project">
     description?: StringFilter<"Project"> | string
+    projectTime?: StringFilter<"Project"> | string
     liveLink?: StringNullableFilter<"Project"> | string | null
     frontendCode?: StringNullableFilter<"Project"> | string | null
     backendCode?: StringNullableFilter<"Project"> | string | null
@@ -5319,7 +5345,9 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     image?: SortOrder
+    technology?: SortOrder
     description?: SortOrder
+    projectTime?: SortOrder
     liveLink?: SortOrderInput | SortOrder
     frontendCode?: SortOrderInput | SortOrder
     backendCode?: SortOrderInput | SortOrder
@@ -5332,7 +5360,9 @@ export namespace Prisma {
     NOT?: ProjectWhereInput | ProjectWhereInput[]
     title?: StringFilter<"Project"> | string
     image?: StringFilter<"Project"> | string
+    technology?: StringNullableListFilter<"Project">
     description?: StringFilter<"Project"> | string
+    projectTime?: StringFilter<"Project"> | string
     liveLink?: StringNullableFilter<"Project"> | string | null
     frontendCode?: StringNullableFilter<"Project"> | string | null
     backendCode?: StringNullableFilter<"Project"> | string | null
@@ -5342,7 +5372,9 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     image?: SortOrder
+    technology?: SortOrder
     description?: SortOrder
+    projectTime?: SortOrder
     liveLink?: SortOrderInput | SortOrder
     frontendCode?: SortOrderInput | SortOrder
     backendCode?: SortOrderInput | SortOrder
@@ -5358,7 +5390,9 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Project"> | string
     title?: StringWithAggregatesFilter<"Project"> | string
     image?: StringWithAggregatesFilter<"Project"> | string
+    technology?: StringNullableListFilter<"Project">
     description?: StringWithAggregatesFilter<"Project"> | string
+    projectTime?: StringWithAggregatesFilter<"Project"> | string
     liveLink?: StringNullableWithAggregatesFilter<"Project"> | string | null
     frontendCode?: StringNullableWithAggregatesFilter<"Project"> | string | null
     backendCode?: StringNullableWithAggregatesFilter<"Project"> | string | null
@@ -5506,7 +5540,9 @@ export namespace Prisma {
     id?: string
     title: string
     image: string
+    technology?: ProjectCreatetechnologyInput | string[]
     description: string
+    projectTime: string
     liveLink?: string | null
     frontendCode?: string | null
     backendCode?: string | null
@@ -5516,7 +5552,9 @@ export namespace Prisma {
     id?: string
     title: string
     image: string
+    technology?: ProjectCreatetechnologyInput | string[]
     description: string
+    projectTime: string
     liveLink?: string | null
     frontendCode?: string | null
     backendCode?: string | null
@@ -5526,7 +5564,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
+    technology?: ProjectUpdatetechnologyInput | string[]
     description?: StringFieldUpdateOperationsInput | string
+    projectTime?: StringFieldUpdateOperationsInput | string
     liveLink?: NullableStringFieldUpdateOperationsInput | string | null
     frontendCode?: NullableStringFieldUpdateOperationsInput | string | null
     backendCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5536,7 +5576,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
+    technology?: ProjectUpdatetechnologyInput | string[]
     description?: StringFieldUpdateOperationsInput | string
+    projectTime?: StringFieldUpdateOperationsInput | string
     liveLink?: NullableStringFieldUpdateOperationsInput | string | null
     frontendCode?: NullableStringFieldUpdateOperationsInput | string | null
     backendCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5546,7 +5588,9 @@ export namespace Prisma {
     id?: string
     title: string
     image: string
+    technology?: ProjectCreatetechnologyInput | string[]
     description: string
+    projectTime: string
     liveLink?: string | null
     frontendCode?: string | null
     backendCode?: string | null
@@ -5556,7 +5600,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
+    technology?: ProjectUpdatetechnologyInput | string[]
     description?: StringFieldUpdateOperationsInput | string
+    projectTime?: StringFieldUpdateOperationsInput | string
     liveLink?: NullableStringFieldUpdateOperationsInput | string | null
     frontendCode?: NullableStringFieldUpdateOperationsInput | string | null
     backendCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5566,7 +5612,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
+    technology?: ProjectUpdatetechnologyInput | string[]
     description?: StringFieldUpdateOperationsInput | string
+    projectTime?: StringFieldUpdateOperationsInput | string
     liveLink?: NullableStringFieldUpdateOperationsInput | string | null
     frontendCode?: NullableStringFieldUpdateOperationsInput | string | null
     backendCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5721,6 +5769,14 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -5745,7 +5801,9 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     image?: SortOrder
+    technology?: SortOrder
     description?: SortOrder
+    projectTime?: SortOrder
     liveLink?: SortOrder
     frontendCode?: SortOrder
     backendCode?: SortOrder
@@ -5756,6 +5814,7 @@ export namespace Prisma {
     title?: SortOrder
     image?: SortOrder
     description?: SortOrder
+    projectTime?: SortOrder
     liveLink?: SortOrder
     frontendCode?: SortOrder
     backendCode?: SortOrder
@@ -5766,6 +5825,7 @@ export namespace Prisma {
     title?: SortOrder
     image?: SortOrder
     description?: SortOrder
+    projectTime?: SortOrder
     liveLink?: SortOrder
     frontendCode?: SortOrder
     backendCode?: SortOrder
@@ -5868,6 +5928,15 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type ProjectCreatetechnologyInput = {
+    set: string[]
+  }
+
+  export type ProjectUpdatetechnologyInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {

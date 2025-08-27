@@ -15,10 +15,12 @@ model User {
 }
 
 model Project {
-  id           String  @id @default(uuid())
+  id           String   @id @default(uuid())
   title        String
   image        String
+  technology   String[]
   description  String
+  projectTime  String
   liveLink     String?
   frontendCode String?
   backendCode  String?
