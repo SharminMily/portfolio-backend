@@ -1,69 +1,122 @@
 import { PrismaClient } from "../../../../generated/prisma";
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
+// =========================
+// Create Blog
+// =========================
 
 const createBlog = async (data: any) => {
-//   console.log({ data });
-
-  const BlogData = {
+  const blogData = {
     title: data.title,
     image: data.image,
     description: data.description,
-    ratting : data.ratting 
+    content: data.content,
+    category: data.category,
+    readTime: data.readTime,
+    ratting: data.ratting ?? 0,
   };
 
   const result = await prisma.blog.create({
-    data: BlogData,
+    data: blogData,
   });
 
   return result;
 };
 
+// =========================
+// Get All Blogs
+// =========================
 
-//get all  from database
-const  gellAllBlog = async ()  => {  
-    const result = await prisma.blog.findMany() 
-    return result;
+const getAllBlog = async () => {
+  const result = await prisma.blog.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return result;
+};
+
+// =========================
+// Get Single Blog
+// =========================
+
+const getByIdFromDB = async (id: string) => {
+  const result = await prisma.blog.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  return result;
+};
+
+// =========================
+// Update Blog
+// =========================
+const updateIntoDB = async (id: string, data: any) => {
+  const blogData = {
+    title: data.title,
+    image: data.image,
+    description: data.description,
+    content: data.content,
+    category: data.category,
+    readTime: data.readTime,
+    ratting: data.ratting ?? 0,
   };
 
-  //get single from database
-const getByIdFromDB = async (id: string)  => {      
-    const result = await prisma.blog.findUnique({
-        where: {id}
-      })
-      
-    return result;
-  };
+  const result = await prisma.blog.update({
+    where: {
+      id,
+    },
+    data: blogData,
+  });
 
-  //Update from Database
-  const updateIntoDB = async (id: string, data: any) => {  
-    const result = await prisma.blog.update({
-        where: {
-         id : id
-        },
-        data
-      })
-    return result;
-  };
+  return result;
+};
+// =========================
+// Delete Blog
+// =========================
 
+const deleteFromDB = async (id: string) => {
+  const result = await prisma.blog.delete({
+    where: {
+      id,
+    },
+  });
 
-  //delete from database
-const deleteFromDB = async (id: string)  => {  
-  // console.log({ id });
-    const result = await prisma.blog.delete({
-        where: {
-         id: id
-        }
-      })
-    return result;
-  };
-  
+  return result;
+};
+
+// =========================
+// Add Reaction
+// =========================
+
+const addReaction = async (id: string) => {
+  const result = await prisma.blog.update({
+    where: {
+      id,
+    },
+    data: {
+      reactionCount: {
+        increment: 1,
+      },
+    },
+    select: {
+      id: true,
+      reactionCount: true,
+    },
+  });
+
+  return result;
+};
 
 export const BlogServices = {
-    createBlog,
-    gellAllBlog,
-    getByIdFromDB,
-    updateIntoDB,
-    deleteFromDB
-}
+  createBlog,
+  getAllBlog,
+  getByIdFromDB,
+  updateIntoDB,
+  deleteFromDB,
+  addReaction,
+};

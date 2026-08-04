@@ -143,7 +143,13 @@ exports.Prisma.BlogScalarFieldEnum = {
   title: 'title',
   image: 'image',
   description: 'description',
-  ratting: 'ratting'
+  content: 'content',
+  category: 'category',
+  readTime: 'readTime',
+  ratting: 'ratting',
+  reactionCount: 'reactionCount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SkillScalarFieldEnum = {

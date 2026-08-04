@@ -27,11 +27,17 @@ model Project {
 }
 
 model Blog {
-  id          String @id @default(uuid())
-  title       String
-  image       String
-  description String
-  ratting     Int?
+  id            String   @id @default(uuid())
+  title         String
+  image         String?
+  description   String
+  content       String
+  category      String
+  readTime      String
+  ratting       Float    @default(0)
+  reactionCount Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
 model Skill {

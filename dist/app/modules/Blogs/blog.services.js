@@ -12,55 +12,105 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlogServices = void 0;
 const prisma_1 = require("../../../../generated/prisma");
 const prisma = new prisma_1.PrismaClient();
+// =========================
+// Create Blog
+// =========================
 const createBlog = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    //   console.log({ data });
-    const BlogData = {
+    var _a;
+    const blogData = {
         title: data.title,
         image: data.image,
         description: data.description,
-        ratting: data.ratting
+        content: data.content,
+        category: data.category,
+        readTime: data.readTime,
+        ratting: (_a = data.ratting) !== null && _a !== void 0 ? _a : 0,
     };
     const result = yield prisma.blog.create({
-        data: BlogData,
+        data: blogData,
     });
     return result;
 });
-//get all  from database
-const gellAllBlog = () => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield prisma.blog.findMany();
+// =========================
+// Get All Blogs
+// =========================
+const getAllBlog = () => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield prisma.blog.findMany({
+        orderBy: {
+            createdAt: "desc",
+        },
+    });
     return result;
 });
-//get single from database
+// =========================
+// Get Single Blog
+// =========================
 const getByIdFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield prisma.blog.findUnique({
-        where: { id }
+        where: {
+            id,
+        },
     });
     return result;
 });
-//Update from Database
+// =========================
+// Update Blog
+// =========================
 const updateIntoDB = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    const blogData = {
+        title: data.title,
+        image: data.image,
+        description: data.description,
+        content: data.content,
+        category: data.category,
+        readTime: data.readTime,
+        ratting: (_a = data.ratting) !== null && _a !== void 0 ? _a : 0,
+    };
     const result = yield prisma.blog.update({
         where: {
-            id: id
+            id,
         },
-        data
+        data: blogData,
     });
     return result;
 });
-//delete from database
+// =========================
+// Delete Blog
+// =========================
 const deleteFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    // console.log({ id });
     const result = yield prisma.blog.delete({
         where: {
-            id: id
-        }
+            id,
+        },
+    });
+    return result;
+});
+// =========================
+// Add Reaction
+// =========================
+const addReaction = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield prisma.blog.update({
+        where: {
+            id,
+        },
+        data: {
+            reactionCount: {
+                increment: 1,
+            },
+        },
+        select: {
+            id: true,
+            reactionCount: true,
+        },
     });
     return result;
 });
 exports.BlogServices = {
     createBlog,
-    gellAllBlog,
+    getAllBlog,
     getByIdFromDB,
     updateIntoDB,
-    deleteFromDB
+    deleteFromDB,
+    addReaction,
 };

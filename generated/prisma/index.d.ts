@@ -3168,10 +3168,12 @@ export namespace Prisma {
 
   export type BlogAvgAggregateOutputType = {
     ratting: number | null
+    reactionCount: number | null
   }
 
   export type BlogSumAggregateOutputType = {
     ratting: number | null
+    reactionCount: number | null
   }
 
   export type BlogMinAggregateOutputType = {
@@ -3179,7 +3181,13 @@ export namespace Prisma {
     title: string | null
     image: string | null
     description: string | null
+    content: string | null
+    category: string | null
+    readTime: string | null
     ratting: number | null
+    reactionCount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type BlogMaxAggregateOutputType = {
@@ -3187,7 +3195,13 @@ export namespace Prisma {
     title: string | null
     image: string | null
     description: string | null
+    content: string | null
+    category: string | null
+    readTime: string | null
     ratting: number | null
+    reactionCount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type BlogCountAggregateOutputType = {
@@ -3195,17 +3209,25 @@ export namespace Prisma {
     title: number
     image: number
     description: number
+    content: number
+    category: number
+    readTime: number
     ratting: number
+    reactionCount: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
   export type BlogAvgAggregateInputType = {
     ratting?: true
+    reactionCount?: true
   }
 
   export type BlogSumAggregateInputType = {
     ratting?: true
+    reactionCount?: true
   }
 
   export type BlogMinAggregateInputType = {
@@ -3213,7 +3235,13 @@ export namespace Prisma {
     title?: true
     image?: true
     description?: true
+    content?: true
+    category?: true
+    readTime?: true
     ratting?: true
+    reactionCount?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type BlogMaxAggregateInputType = {
@@ -3221,7 +3249,13 @@ export namespace Prisma {
     title?: true
     image?: true
     description?: true
+    content?: true
+    category?: true
+    readTime?: true
     ratting?: true
+    reactionCount?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type BlogCountAggregateInputType = {
@@ -3229,7 +3263,13 @@ export namespace Prisma {
     title?: true
     image?: true
     description?: true
+    content?: true
+    category?: true
+    readTime?: true
     ratting?: true
+    reactionCount?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -3322,9 +3362,15 @@ export namespace Prisma {
   export type BlogGroupByOutputType = {
     id: string
     title: string
-    image: string
+    image: string | null
     description: string
-    ratting: number | null
+    content: string
+    category: string
+    readTime: string
+    ratting: number
+    reactionCount: number
+    createdAt: Date
+    updatedAt: Date
     _count: BlogCountAggregateOutputType | null
     _avg: BlogAvgAggregateOutputType | null
     _sum: BlogSumAggregateOutputType | null
@@ -3351,7 +3397,13 @@ export namespace Prisma {
     title?: boolean
     image?: boolean
     description?: boolean
+    content?: boolean
+    category?: boolean
+    readTime?: boolean
     ratting?: boolean
+    reactionCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["blog"]>
 
   export type BlogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3359,7 +3411,13 @@ export namespace Prisma {
     title?: boolean
     image?: boolean
     description?: boolean
+    content?: boolean
+    category?: boolean
+    readTime?: boolean
     ratting?: boolean
+    reactionCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["blog"]>
 
   export type BlogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3367,7 +3425,13 @@ export namespace Prisma {
     title?: boolean
     image?: boolean
     description?: boolean
+    content?: boolean
+    category?: boolean
+    readTime?: boolean
     ratting?: boolean
+    reactionCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["blog"]>
 
   export type BlogSelectScalar = {
@@ -3375,10 +3439,16 @@ export namespace Prisma {
     title?: boolean
     image?: boolean
     description?: boolean
+    content?: boolean
+    category?: boolean
+    readTime?: boolean
     ratting?: boolean
+    reactionCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type BlogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "image" | "description" | "ratting", ExtArgs["result"]["blog"]>
+  export type BlogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "image" | "description" | "content" | "category" | "readTime" | "ratting" | "reactionCount" | "createdAt" | "updatedAt", ExtArgs["result"]["blog"]>
 
   export type $BlogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Blog"
@@ -3386,9 +3456,15 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       title: string
-      image: string
+      image: string | null
       description: string
-      ratting: number | null
+      content: string
+      category: string
+      readTime: string
+      ratting: number
+      reactionCount: number
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["blog"]>
     composites: {}
   }
@@ -3816,7 +3892,13 @@ export namespace Prisma {
     readonly title: FieldRef<"Blog", 'String'>
     readonly image: FieldRef<"Blog", 'String'>
     readonly description: FieldRef<"Blog", 'String'>
-    readonly ratting: FieldRef<"Blog", 'Int'>
+    readonly content: FieldRef<"Blog", 'String'>
+    readonly category: FieldRef<"Blog", 'String'>
+    readonly readTime: FieldRef<"Blog", 'String'>
+    readonly ratting: FieldRef<"Blog", 'Float'>
+    readonly reactionCount: FieldRef<"Blog", 'Int'>
+    readonly createdAt: FieldRef<"Blog", 'DateTime'>
+    readonly updatedAt: FieldRef<"Blog", 'DateTime'>
   }
     
 
@@ -5195,7 +5277,13 @@ export namespace Prisma {
     title: 'title',
     image: 'image',
     description: 'description',
-    ratting: 'ratting'
+    content: 'content',
+    category: 'category',
+    readTime: 'readTime',
+    ratting: 'ratting',
+    reactionCount: 'reactionCount',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type BlogScalarFieldEnum = (typeof BlogScalarFieldEnum)[keyof typeof BlogScalarFieldEnum]
@@ -5254,6 +5342,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -5268,16 +5370,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Float'
+   * Reference to a field of type 'DateTime'
    */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
     
 
 
   /**
-   * Reference to a field of type 'Float[]'
+   * Reference to a field of type 'DateTime[]'
    */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
   /**
    * Deep Input Types
@@ -5404,17 +5506,29 @@ export namespace Prisma {
     NOT?: BlogWhereInput | BlogWhereInput[]
     id?: StringFilter<"Blog"> | string
     title?: StringFilter<"Blog"> | string
-    image?: StringFilter<"Blog"> | string
+    image?: StringNullableFilter<"Blog"> | string | null
     description?: StringFilter<"Blog"> | string
-    ratting?: IntNullableFilter<"Blog"> | number | null
+    content?: StringFilter<"Blog"> | string
+    category?: StringFilter<"Blog"> | string
+    readTime?: StringFilter<"Blog"> | string
+    ratting?: FloatFilter<"Blog"> | number
+    reactionCount?: IntFilter<"Blog"> | number
+    createdAt?: DateTimeFilter<"Blog"> | Date | string
+    updatedAt?: DateTimeFilter<"Blog"> | Date | string
   }
 
   export type BlogOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
-    image?: SortOrder
+    image?: SortOrderInput | SortOrder
     description?: SortOrder
-    ratting?: SortOrderInput | SortOrder
+    content?: SortOrder
+    category?: SortOrder
+    readTime?: SortOrder
+    ratting?: SortOrder
+    reactionCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type BlogWhereUniqueInput = Prisma.AtLeast<{
@@ -5423,17 +5537,29 @@ export namespace Prisma {
     OR?: BlogWhereInput[]
     NOT?: BlogWhereInput | BlogWhereInput[]
     title?: StringFilter<"Blog"> | string
-    image?: StringFilter<"Blog"> | string
+    image?: StringNullableFilter<"Blog"> | string | null
     description?: StringFilter<"Blog"> | string
-    ratting?: IntNullableFilter<"Blog"> | number | null
+    content?: StringFilter<"Blog"> | string
+    category?: StringFilter<"Blog"> | string
+    readTime?: StringFilter<"Blog"> | string
+    ratting?: FloatFilter<"Blog"> | number
+    reactionCount?: IntFilter<"Blog"> | number
+    createdAt?: DateTimeFilter<"Blog"> | Date | string
+    updatedAt?: DateTimeFilter<"Blog"> | Date | string
   }, "id">
 
   export type BlogOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
-    image?: SortOrder
+    image?: SortOrderInput | SortOrder
     description?: SortOrder
-    ratting?: SortOrderInput | SortOrder
+    content?: SortOrder
+    category?: SortOrder
+    readTime?: SortOrder
+    ratting?: SortOrder
+    reactionCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: BlogCountOrderByAggregateInput
     _avg?: BlogAvgOrderByAggregateInput
     _max?: BlogMaxOrderByAggregateInput
@@ -5447,9 +5573,15 @@ export namespace Prisma {
     NOT?: BlogScalarWhereWithAggregatesInput | BlogScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Blog"> | string
     title?: StringWithAggregatesFilter<"Blog"> | string
-    image?: StringWithAggregatesFilter<"Blog"> | string
+    image?: StringNullableWithAggregatesFilter<"Blog"> | string | null
     description?: StringWithAggregatesFilter<"Blog"> | string
-    ratting?: IntNullableWithAggregatesFilter<"Blog"> | number | null
+    content?: StringWithAggregatesFilter<"Blog"> | string
+    category?: StringWithAggregatesFilter<"Blog"> | string
+    readTime?: StringWithAggregatesFilter<"Blog"> | string
+    ratting?: FloatWithAggregatesFilter<"Blog"> | number
+    reactionCount?: IntWithAggregatesFilter<"Blog"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Blog"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Blog"> | Date | string
   }
 
   export type SkillWhereInput = {
@@ -5623,57 +5755,99 @@ export namespace Prisma {
   export type BlogCreateInput = {
     id?: string
     title: string
-    image: string
+    image?: string | null
     description: string
-    ratting?: number | null
+    content: string
+    category: string
+    readTime: string
+    ratting?: number
+    reactionCount?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type BlogUncheckedCreateInput = {
     id?: string
     title: string
-    image: string
+    image?: string | null
     description: string
-    ratting?: number | null
+    content: string
+    category: string
+    readTime: string
+    ratting?: number
+    reactionCount?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type BlogUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
-    ratting?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    readTime?: StringFieldUpdateOperationsInput | string
+    ratting?: FloatFieldUpdateOperationsInput | number
+    reactionCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type BlogUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
-    ratting?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    readTime?: StringFieldUpdateOperationsInput | string
+    ratting?: FloatFieldUpdateOperationsInput | number
+    reactionCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type BlogCreateManyInput = {
     id?: string
     title: string
-    image: string
+    image?: string | null
     description: string
-    ratting?: number | null
+    content: string
+    category: string
+    readTime: string
+    ratting?: number
+    reactionCount?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type BlogUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
-    ratting?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    readTime?: StringFieldUpdateOperationsInput | string
+    ratting?: FloatFieldUpdateOperationsInput | number
+    reactionCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type BlogUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
-    ratting?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    readTime?: StringFieldUpdateOperationsInput | string
+    ratting?: FloatFieldUpdateOperationsInput | number
+    reactionCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SkillCreateInput = {
@@ -5849,15 +6023,37 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type BlogCountOrderByAggregateInput = {
@@ -5865,11 +6061,18 @@ export namespace Prisma {
     title?: SortOrder
     image?: SortOrder
     description?: SortOrder
+    content?: SortOrder
+    category?: SortOrder
+    readTime?: SortOrder
     ratting?: SortOrder
+    reactionCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type BlogAvgOrderByAggregateInput = {
     ratting?: SortOrder
+    reactionCount?: SortOrder
   }
 
   export type BlogMaxOrderByAggregateInput = {
@@ -5877,7 +6080,13 @@ export namespace Prisma {
     title?: SortOrder
     image?: SortOrder
     description?: SortOrder
+    content?: SortOrder
+    category?: SortOrder
+    readTime?: SortOrder
     ratting?: SortOrder
+    reactionCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type BlogMinOrderByAggregateInput = {
@@ -5885,27 +6094,64 @@ export namespace Prisma {
     title?: SortOrder
     image?: SortOrder
     description?: SortOrder
+    content?: SortOrder
+    category?: SortOrder
+    readTime?: SortOrder
     ratting?: SortOrder
+    reactionCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type BlogSumOrderByAggregateInput = {
     ratting?: SortOrder
+    reactionCount?: SortOrder
   }
 
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type SkillCountOrderByAggregateInput = {
@@ -5943,12 +6189,24 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6035,31 +6293,72 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
 

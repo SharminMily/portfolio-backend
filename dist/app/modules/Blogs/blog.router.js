@@ -7,9 +7,11 @@ exports.BlogRoutes = void 0;
 const express_1 = __importDefault(require("express"));
 const blog_controller_1 = require("./blog.controller");
 const router = express_1.default.Router();
-router.get("/:id", blog_controller_1.BlogController.getByIdFromDB);
 router.post("/", blog_controller_1.BlogController.createBlog);
 router.get("/", blog_controller_1.BlogController.getAllBlogFromDB);
+router.get("/:id", blog_controller_1.BlogController.getByIdFromDB);
 router.patch("/:id", blog_controller_1.BlogController.updateIdFromDB);
 router.delete("/:id", blog_controller_1.BlogController.deleteBlogFromDB);
+// ❤️ React to blog
+router.post("/:id/react", blog_controller_1.BlogController.reactToBlog);
 exports.BlogRoutes = router;
